@@ -1,0 +1,92 @@
+databaseChangeLog:
+  - logicalFilePath: db.changelog/migrations/14-21-create-hello-world-table.yaml
+  - changeSet:
+      id: 1
+      author: root
+      comment: "Create table user"
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: login
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 2
+      author: root
+      comment: "Create table item"
+      changes:
+        - createTable:
+            tableName: item
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(512)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: count
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: parentId
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 3
+      author: root
+      comment: "Create table parent"
+      changes:
+        - createTable:
+            tableName: parent
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+                  constraints:
+                    unique: true
+                    nullable: false
