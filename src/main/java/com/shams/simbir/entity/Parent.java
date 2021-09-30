@@ -18,8 +18,7 @@ public class Parent {
     String name;
 
     //Зависимость таблицы items от parent
-    /*
     @OneToOne(mappedBy = "parent")
     Item item;
-    */
+
 }

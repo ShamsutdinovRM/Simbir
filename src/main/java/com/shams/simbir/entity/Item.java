@@ -19,10 +19,13 @@ public class Item {
     String description;
     @Column(name = "count")
     Long count;
+    /*@Column(name = "parent_id")
+    Long parent_id;*/
+
 
     //Зависимость таблицы items от parent
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "parent_id", referencedColumnName = "id")
     Parent parent;
-
 }
