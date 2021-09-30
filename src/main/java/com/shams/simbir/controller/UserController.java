@@ -9,23 +9,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/user", produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
 
-    final UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping("/users")
+    @GetMapping()
     public List<User> findAllUsers() {
         return userService.findAll();
     }
 
-    @GetMapping("/usersId")
-    public User findByIdUsers(Long id){
+    @GetMapping("/{id}")
+    public User findByIdUsers(@PathVariable(name = "id") Long id){
         return userService.findById(id);
     }
 

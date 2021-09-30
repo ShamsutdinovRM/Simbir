@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/parent", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ParentController {
 
-    final ParentService parentService;
+    private final ParentService parentService;
 
     public ParentController(ParentService parentService){
         this.parentService = parentService;
     }
 
-    @GetMapping("/parents")
+    @GetMapping()
     public List<Parent> findAllParents(){
         return parentService.findAll();
     }
 
-    @GetMapping("/parentsId")
-    public Parent findByIdParents(Long id){
+    @GetMapping("/{id}")
+    public Parent findByIdParents(@PathVariable(name = "id") Long id){
         return parentService.findById(id);
     }
 
