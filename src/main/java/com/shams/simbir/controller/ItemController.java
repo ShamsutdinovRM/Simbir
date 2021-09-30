@@ -8,22 +8,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/item", produces = MediaType.APPLICATION_JSON_VALUE)
 public class ItemController {
 
-    final ItemService itemService;
+    private final ItemService itemService;
 
     public ItemController(ItemService itemService){
         this.itemService = itemService;
     }
 
-    @GetMapping("/items")
+    @GetMapping()
     public List<Item> findAllItems(){
         return itemService.findAll();
     }
 
-    @GetMapping("/itemsId")
-    public Item findByIdItems(Long id){
+    @GetMapping("/{id}")
+    public Item findByIdItems(@PathVariable(name = "id") Long id){
         return itemService.findById(id);
     }
 
