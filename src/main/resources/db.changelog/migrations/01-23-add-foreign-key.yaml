@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - logicalFilePath: db.changelog/migrations/01-23-add-foreign-key.yaml
+  - changeSet:
+      id: addForeignKeyConstraint-try
+      author: root
+      comment: "Create foreign key"
+      changes:
+          - addForeignKeyConstraint:
+                baseColumnNames: parent_id
+                baseTableCatalogName: tables
+                baseTableName: items
+                baseTableSchemaName: public
+                constraintName: fk_items_parent
+                deferrable: true
+                initiallyDeferred: true
+                onDelete: CASCADE
+                onUpdate: RESTRICT
+                referencedColumnNames: id
+                referencedTableCatalogName: tables
+                referencedTableName: parent
+                referencedTableSchemaName: public
+                validate: true
