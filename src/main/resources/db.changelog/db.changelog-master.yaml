@@ -1,3 +1,5 @@
 databaseChangeLog:
   - include:
       file: db.changelog/migrations/14-21-create-hello-world-table.yaml
+  - include:
+      file: db.changelog/migrations/01-23-add-foreign-key.yaml
