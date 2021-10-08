@@ -11,14 +11,14 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "login")
-    String login;
+    private String login;
     @Column(name = "password")
-    String password;
+    private String password;
     @Enumerated(value = EnumType.STRING)
     @Column(name = "role")
-    Role role;
+    private Role role;
 
 }
