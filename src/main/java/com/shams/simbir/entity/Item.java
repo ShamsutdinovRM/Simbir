@@ -1,11 +1,8 @@
 package com.shams.simbir.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.swing.*;
-import java.util.Set;
 
 //Подключение к БД, таблица items
 @Data
@@ -14,14 +11,14 @@ import java.util.Set;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "name")
-    String name;
+    private String name;
     @Column(name = "description")
-    String description;
+    private String description;
     @Column(name = "count")
-    Long count;
+    private Long count;
 
     //Зависимость таблицы items от parent
     @ManyToOne
